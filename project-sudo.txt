@@ -1,0 +1,111 @@
+Game ideas 
+    - Celeste / SuperMeatBoy / Hollow Knight / platform-er / rogue-lite? 
+    - fixed position? Sticky walls? 
+    - Will P/C be single move? i.e fly one direction, stick to wall for certain period, fall. 
+        - If above - make floor = dead? 
+    - Will P/C have option to direct jump? 
+        - Could look at adding in a line showing direction? 
+    - Possibly be easier to work on X and Y = left, right, up, down
+    - What is the 'goal' of the game? 
+        - Reach a certain point? 
+        - Collectibles along route? 
+    - Puzzler? Always a correct solution? 
+
+Level design
+    - scrolling? 
+        - Could keep fixed and add scroll effect on level progression? 
+    - Backgrounds? 
+        -  Hand drawn? Random? AI-generated? 
+        - Pixel backgrounds 
+    - How will ypu implement obstacles? 
+        - death-traps? 
+        - spikes? 
+        - non-stick walls? 
+    - How will you make P/C stick to walls? 
+        - Delay? 
+        - Will this require gravity effect? 
+    - Size of container? 
+        - Definitely use wrapper and keep window to a certain size. 
+        - Force mobile into landscape to play? 
+            - Optional landscape? 
+        - Possibly make game smaller for mobile? 
+    - Start and End points
+        - pass through 'open' area to get to next stage? 
+        - land in certain spot to get to next page? 
+    - Un-lockable areas? Impassable areas? 
+    - Zero-G rooms? 
+
+Player Character
+    - Icon? Object? What will it be? 
+    - Simple up / down / left / right controls? 
+    - How will the control transform itself to mobile? 
+        - How to implement a 'swipe' feature for directions.
+        - left right up down on screen? 
+            - Option to switch this depending on dominant hand? 
+    - Look into distance arrows? Pull and shoot? 
+
+Movement 
+    - end to end? 
+    - Increment? 
+    - Jumps? No jumps? 
+
+Display 
+    - 
+
+Enemies
+    - Possibly implement math.random to fire something in a random direction in a room, that will wipe p/c out? 
+
+Theme
+    - Dark Souls meets Super Meat Boy meets Celeste
+    - GORE / BLOOD / VIOLENCE? 
+    - Pixel pixel pixel 
+
+Progression
+    - Rogue-lite? Rewards to make runs easier? 
+    - If die too many times, give option for easy-mode? 
+    - Maybe look into auto-generated rooms?
+    - Bosses? 
+
+Easter Eggs
+    - easy mode option? 
+    - 'developer room' - info about me? 
+    - cheat codes? - up up up down down down or something... 
+
+Handlers 
+    - Handle Inputs 
+        - left, right, up, down
+    - Handle Location
+        - Handle the player Location
+    - Handle obstacles
+        - traps / resets 
+    - Handle gravity
+        - Zero zones? Usual weight? 
+    - Handle Levels 
+        - Completed Levels
+        - Switching between levels 
+    
+Functions
+    - Taking directional Inputs
+    - Moving character after inputs 
+    - level control 
+    - position relatives? 
+    - image rendering 
+
+
+Game Logic
+    - p/c can move up/down/left/right 
+    - Will always be only 1 path to exit
+    - Single column / row pathways 
+    - end to end movement. If a direction is pressed, p/c will travel that paths extent 
+    - 
+
+Step 1 - Figure out how to render a movable object on a page
+Step 2 - Figure out how to move said object
+Step 3 - Figure out how to have walls 
+Step 4 - Figure out how to have resets 
+Step 5 - 
+
+
+Possibly think - traversing matrixes
+Only allow one end to the other 
+Think about how to transverse the thing, and how to make it display on screen. 
