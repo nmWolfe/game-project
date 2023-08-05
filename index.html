@@ -3,11 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SuperMazeBoy</title>
+    <title>SuperMaize Boy</title>
   </head>
   <body>
     <div class="container">
-      <h1>Super Maze Boy</h1>
+      <header class="header">
+        <h1 class="header__title">
+          SuperMaize <br />
+          Boy
+        </h1>
+      </header>
+      <section class="game__section">
+        <div class="game-container">This will be the game container</div>
+        <div class="controls-container">
+          <div class="controls">
+            <div class="controls__up">
+              <img src="./src/assets/up.svg" alt="up arrow" class="arrow-up" />
+            </div>
+            <div class="controls__left-right">
+              <img
+                src="./src/assets/left.svg"
+                alt="left arrow"
+                class="arrow-left"
+              />
+              <img
+                src="./src/assets/right.svg"
+                alt="right arrow"
+                class="arrow-right"
+              />
+            </div>
+            <div class="controls__down">
+              <img
+                src="./src/assets/down.svg"
+                alt="down arrow"
+                class="arrow-down"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <a href="https://github.com/nmWolfe" target="_blank">
+          <img
+            src="./src/assets/github.svg"
+            alt="github link"
+            class="footer__img"
+          />
+        </a>
+      </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
