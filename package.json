@@ -1,5 +1,5 @@
 {
-  "name": "calculator-project",
+  "name": "super-maze-boy",
   "homepage": "https://nmWolfe.github.io/",
   "private": false,
   "version": "0.0.0",
@@ -9,6 +9,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
+    "test:jest": "vitest",
     "test:cypress": "cypress open"
   },
   "devDependencies": {
