@@ -1,9 +1,107 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,100;1,200&family=Pacifico&display=swap");
 
+$primary-font: Pacifico, Tahoma;
+$secondary-font: "Josefin Sans", Tahoma;
+
+$background-color: #35373e;
+$border-color: #4a473e;
+
+$primary-color: #ffea00;
+$secondary-color: #f6da76;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   background-color: none;
-  font-family: Pacifico, sans-serif;
+  font-family: $primary-font;
+}
+
+body {
+  background-color: $background-color;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  .header {
+    &__title {
+      padding: 10px 20px;
+      margin: 10px 10px;
+      color: #fff;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 4px $primary-color, 0 0 10px $primary-color,
+        0 0 18px $primary-color, 0 0 38px $primary-color;
+      border: 1px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+        0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+        inset 0 0 1.3rem #3e3c35;
+      text-align: center;
+    }
+  }
+  .game__section {
+    padding: 10px;
+    width: 95vw;
+    .game-container {
+      padding: 10px;
+      border: 1px solid #fff;
+      box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+        0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+        inset 0 0 1.3rem #3e3c35;
+      text-align: center;
+      color: #fff;
+    }
+    .controls-container {
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+        0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+        inset 0 0 1.3rem #3e3c35;
+
+      .controls {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        &__left-right {
+          display: inherit;
+          width: 70%;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+      .arrow-up,
+      .arrow-left,
+      .arrow-right,
+      .arrow-down {
+        height: 4rem;
+        padding: 2px;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+          0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+          inset 0 0 1.3rem #3e3c35;
+      }
+    }
+  }
+  .footer {
+    padding: 20px;
+    &__img {
+      padding: 5px;
+      height: 2.5rem;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+        0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+        inset 0 0 1.3rem #3e3c35;
+    }
+  }
 }
