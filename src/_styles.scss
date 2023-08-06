@@ -1,0 +1,145 @@
+@use "./variables" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: none;
+  font-family: $primary-font;
+}
+
+body {
+  background-color: $background-color;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  height: 100vh;
+  .header {
+    &__title {
+      padding: 10px 20px;
+      color: #fff;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 4px $primary-color, 0 0 10px $primary-color,
+        0 0 18px $primary-color, 0 0 38px $primary-color;
+      border: 1px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+        0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+        inset 0 0 1.3rem #3e3c35;
+      text-align: center;
+      font-size: 7vw;
+      background-image: url("./assets/supermaizeboy.png");
+      background-size: 5px;
+      border-radius: 20px;
+    }
+    .logo-left,
+    .logo-right {
+      display: none;
+    }
+  }
+  .game__section {
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 95vw;
+    .game__container {
+      width: 95vw;
+      padding: 10px;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+        0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+        inset 0 0 1.3rem #3e3c35;
+      text-align: center;
+      color: #fff;
+      .game__window {
+        padding: 5px;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+          0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+          inset 0 0 1.3rem #3e3c35;
+        height: 40vh;
+      }
+    }
+  }
+  .controls__section {
+    .controls__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 10px;
+      border: 1px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+        0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+        inset 0 0 1.3rem #3e3c35;
+      width: 90vw;
+      height: 30vh;
+      .controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        &__left-right {
+          display: inherit;
+          width: 70%;
+          justify-content: space-between;
+          align-items: center;
+        }
+        &__up,
+        &__down {
+          display: inherit;
+          justify-content: center;
+          align-items: center;
+        }
+        #arrow-up,
+        #arrow-left,
+        #arrow-right,
+        #arrow-down {
+          height: 8vh;
+          width: 20vw;
+          padding: 2px;
+          border: 1px solid #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff,
+            0 0 2rem $secondary-color, 0 0 0.8rem $secondary-color,
+            0 0 2.8rem $secondary-color, inset 0 0 1.3rem #3e3c35;
+          transition: opacity 0.5s, transform 0.5s;
+          &:hover {
+            opacity: 80%;
+          }
+          &:active {
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    padding: 5px;
+    margin-top: 10px;
+    &__img {
+      padding: 5px;
+      height: 5vh;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+        0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+        inset 0 0 1.3rem #3e3c35;
+      transition: opacity 0.5s;
+      &:hover {
+        opacity: 70%;
+      }
+    }
+  }
+}
