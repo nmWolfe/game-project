@@ -29,9 +29,6 @@ body {
   padding: 10px 20px;
   height: 100vh;
   .header {
-    background-image: url("./assets/supermaizeboy.png");
-    background-size: 5px;
-    border-radius: 20px;
     &__title {
       padding: 10px 20px;
       color: #fff;
@@ -45,6 +42,13 @@ body {
         inset 0 0 1.3rem #3e3c35;
       text-align: center;
       font-size: 7vw;
+      background-image: url("./assets/supermaizeboy.png");
+      background-size: 5px;
+      border-radius: 20px;
+    }
+    .logo-left,
+    .logo-right {
+      display: none;
     }
   }
   .game__section {
@@ -132,8 +136,7 @@ body {
 
   .footer {
     padding: 5px;
-    margin-top: 5px;
-    height: 10vh;
+    margin-top: 10px;
     &__img {
       padding: 5px;
       height: 5vh;
@@ -150,7 +153,7 @@ body {
   }
 }
 
-@media screen and (orientation: landscape) and (max-height: 900px) {
+@media screen and (orientation: landscape) and (max-height: 900px) and (max-width: 1200px) {
   .container {
     display: flex;
     flex-direction: row;
@@ -217,14 +220,48 @@ body {
   }
 }
 
-@media screen and (min-width: 1200) {
+@media screen and (min-width: 1200px) {
   .container {
-    height: 100vh;
+    grid-template-areas:
+      "header game"
+      "footer footer";
+    grid-template-columns: 1fr 1fr;
+
+    width: 100vw;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      &__title {
+        width: 40vw;
+        font-size: 2.5vw;
+      }
+      .logo-left {
+        transform: scaleX(-1);
+      }
+      .logo-left,
+      .logo-right {
+        display: inline-flex;
+        height: 200px;
+      }
+    }
     .game__section {
-      height: 80vh;
+      .game__container {
+        display: flex;
+        align-items: center;
+        height: 70vh;
+        .game__window {
+          height: 65vh;
+          width: 100%;
+        }
+      }
     }
     .controls__section {
       display: none;
+    }
+    .footer {
+      height: 10vh;
     }
   }
 }

@@ -19,11 +19,6 @@ body {
   padding: 10px 20px;
   height: 100vh;
 }
-.container .header {
-  background-image: url("./assets/supermaizeboy.png");
-  background-size: 5px;
-  border-radius: 20px;
-}
 .container .header__title {
   padding: 10px 20px;
   color: #fff;
@@ -34,6 +29,13 @@ body {
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
   text-align: center;
   font-size: 7vw;
+  background-image: url("./assets/supermaizeboy.png");
+  background-size: 5px;
+  border-radius: 20px;
+}
+.container .header .logo-left,
+.container .header .logo-right {
+  display: none;
 }
 .container .game__section {
   display: inherit;
@@ -114,8 +116,7 @@ body {
 }
 .container .footer {
   padding: 5px;
-  margin-top: 5px;
-  height: 10vh;
+  margin-top: 10px;
 }
 .container .footer__img {
   padding: 5px;
@@ -129,7 +130,7 @@ body {
   opacity: 70%;
 }
 
-@media screen and (orientation: landscape) and (max-height: 900px) {
+@media screen and (orientation: landscape) and (max-height: 900px) and (max-width: 1200px) {
   .container {
     display: flex;
     flex-direction: row;
@@ -194,14 +195,43 @@ body {
     display: none;
   }
 }
-@media screen and (min-width: 1200) {
+@media screen and (min-width: 1200px) {
   .container {
-    height: 100vh;
+    grid-template-areas: "header game" "footer footer";
+    grid-template-columns: 1fr 1fr;
+    width: 100vw;
   }
-  .container .game__section {
-    height: 80vh;
+  .container .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .container .header__title {
+    width: 40vw;
+    font-size: 2.5vw;
+  }
+  .container .header .logo-left {
+    transform: scaleX(-1);
+  }
+  .container .header .logo-left,
+  .container .header .logo-right {
+    display: inline-flex;
+    height: 200px;
+  }
+  .container .game__section .game__container {
+    display: flex;
+    align-items: center;
+    height: 70vh;
+  }
+  .container .game__section .game__container .game__window {
+    height: 65vh;
+    width: 100%;
   }
   .container .controls__section {
     display: none;
+  }
+  .container .footer {
+    height: 10vh;
   }
 }/*# sourceMappingURL=styles.css.map */
