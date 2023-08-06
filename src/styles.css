@@ -13,12 +13,19 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 20px;
-}
-.container .header .title {
+  align-items: center;
   padding: 10px 20px;
-  margin: 10px 10px;
+  height: 100vh;
+}
+.container .header {
+  background-image: url("./assets/supermaizeboy.png");
+  background-size: 5px;
+  border-radius: 20px;
+}
+.container .header__title {
+  padding: 10px 20px;
   color: #fff;
   letter-spacing: 0.2rem;
   text-shadow: 0 0 4px #ffea00, 0 0 10px #ffea00, 0 0 18px #ffea00, 0 0 38px #ffea00;
@@ -26,4 +33,175 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
   text-align: center;
+  font-size: 7vw;
+}
+.container .game__section {
+  display: inherit;
+  flex-direction: inherit;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 95vw;
+}
+.container .game__section .game__container {
+  width: 95vw;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+  text-align: center;
+  color: #fff;
+}
+.container .game__section .game__container .game__window {
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+  height: 40vh;
+}
+.container .controls__section .controls__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+  width: 90vw;
+  height: 30vh;
+}
+.container .controls__section .controls__container .controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.container .controls__section .controls__container .controls__left-right {
+  display: inherit;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .controls__section .controls__container .controls__up, .container .controls__section .controls__container .controls__down {
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+}
+.container .controls__section .controls__container .controls #arrow-up,
+.container .controls__section .controls__container .controls #arrow-left,
+.container .controls__section .controls__container .controls #arrow-right,
+.container .controls__section .controls__container .controls #arrow-down {
+  height: 8vh;
+  width: 20vw;
+  padding: 2px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+  transition: opacity 0.5s, transform 0.5s;
+}
+.container .controls__section .controls__container .controls #arrow-up:hover,
+.container .controls__section .controls__container .controls #arrow-left:hover,
+.container .controls__section .controls__container .controls #arrow-right:hover,
+.container .controls__section .controls__container .controls #arrow-down:hover {
+  opacity: 80%;
+}
+.container .controls__section .controls__container .controls #arrow-up:active,
+.container .controls__section .controls__container .controls #arrow-left:active,
+.container .controls__section .controls__container .controls #arrow-right:active,
+.container .controls__section .controls__container .controls #arrow-down:active {
+  transform: scale(0.9);
+}
+.container .footer {
+  padding: 5px;
+  margin-top: 5px;
+  height: 10vh;
+}
+.container .footer__img {
+  padding: 5px;
+  height: 5vh;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+  transition: opacity 0.5s;
+}
+.container .footer__img:hover {
+  opacity: 70%;
+}
+
+@media screen and (orientation: landscape) and (max-height: 900px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+  }
+  .container .header {
+    display: inherit;
+    align-self: flex-start;
+    padding: 10px;
+    margin: 10px;
+    font-size: 1rem;
+  }
+  .container .header__title {
+    font-size: 7vh;
+  }
+  .container .game__section {
+    display: flex;
+    width: 45vw;
+  }
+  .container .game__section .game__container {
+    display: flex;
+    align-items: center;
+    height: 90vh;
+  }
+  .container .game__section .game__container .game__window {
+    height: 85vh;
+    width: 100%;
+  }
+  .container .controls__section {
+    display: flex;
+    margin: 10px;
+  }
+  .container .controls__section .controls__container {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 20vw;
+  }
+  .container .controls__section .controls__container .controls {
+    width: 100%;
+  }
+  .container .controls__section .controls__container .controls__left-right {
+    display: inherit;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .container .controls__section .controls__container .controls__up, .container .controls__section .controls__container .controls__down {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .controls__section .controls__container .controls #arrow-up,
+  .container .controls__section .controls__container .controls #arrow-left,
+  .container .controls__section .controls__container .controls #arrow-right,
+  .container .controls__section .controls__container .controls #arrow-down {
+    width: 10vw;
+    height: 10vh;
+  }
+  .container .footer {
+    display: none;
+  }
+}
+@media screen and (min-width: 1200) {
+  .container {
+    height: 100vh;
+  }
+  .container .game__section {
+    height: 80vh;
+  }
+  .container .controls__section {
+    display: none;
+  }
 }/*# sourceMappingURL=styles.css.map */
