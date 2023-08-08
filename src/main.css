@@ -94,7 +94,7 @@ body {
 }
 .container .game__section .game__container .game__counters .time-counter,
 .container .game__section .game__container .game__counters .corn-counter {
-  background: #35373e;
+  background: none;
   border: none;
   width: 50%;
   height: 95%;
