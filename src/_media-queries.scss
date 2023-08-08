@@ -71,8 +71,7 @@
       "header game"
       "footer footer";
     grid-template-columns: 1fr 1fr;
-
-    width: 100vw;
+    max-width: 800px;
     .header {
       display: flex;
       justify-content: space-between;
