@@ -18,9 +18,12 @@ body {
   align-items: center;
   padding: 10px 20px;
   height: 100vh;
+  max-width: 800px;
+  margin: auto;
 }
 .container .header__title {
   padding: 10px 20px;
+  margin-top: 10px;
   color: #fff;
   letter-spacing: 0.2rem;
   text-shadow: 0 0 4px #ffea00, 0 0 10px #ffea00, 0 0 18px #ffea00, 0 0 38px #ffea00;
@@ -29,7 +32,7 @@ body {
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
   text-align: center;
   font-size: 7vw;
-  background-image: url("./assets/supermaizeboy.png");
+  background-image: url("./assets/supermaizeboy.svg");
   background-size: 5px;
   border-radius: 20px;
 }
@@ -43,9 +46,14 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  max-width: 800px;
   width: 95vw;
 }
 .container .game__section .game__container {
+  display: inherit;
+  flex-direction: inherit;
+  align-items: center;
+  max-width: 800px;
   width: 95vw;
   padding: 10px;
   border: 1px solid #fff;
@@ -54,12 +62,79 @@ body {
   text-align: center;
   color: #fff;
 }
+.container .game__section .game__container .game__counters {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+  height: 5vh;
+  width: 80%;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .game__section .game__container .game__counters .time-input {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1px;
+  width: 50%;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+}
+.container .game__section .game__container .game__counters .corn-input {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1px;
+  width: 50%;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+}
+.container .game__section .game__container .game__counters .time-counter,
+.container .game__section .game__container .game__counters .corn-counter {
+  background: #35373e;
+  border: none;
+  width: 50%;
+  height: 95%;
+  color: #fff;
+  font-size: 2.5vh;
+}
+.container .game__section .game__container .game__counters .corn-counter {
+  text-align: right;
+}
 .container .game__section .game__container .game__window {
   padding: 5px;
   border: 1px solid #fff;
   border-radius: 10px;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
-  height: 40vh;
+  height: 35vh;
+  width: 100%;
+  background-color: #35373e;
+}
+.container .game__section .game__container .game {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+.container .game__section .game__container .cell {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.container .game__section .game__container #blocked {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+  background-image: url("./assets/supermaizeboy.svg");
+  background-size: 5px;
+}
+.container .game__section .game__container .intro {
+  font-family: "Josefin Sans", Tahoma;
+  padding: 10px;
+  font-size: 1.2rem;
 }
 .container .controls__section .controls__container {
   display: flex;
@@ -139,7 +214,10 @@ body {
   }
   .container .header {
     display: inherit;
+    flex-direction: column;
     align-self: flex-start;
+    justify-content: space-between;
+    height: 100%;
     padding: 10px;
     margin: 10px;
     font-size: 1rem;
@@ -147,14 +225,26 @@ body {
   .container .header__title {
     font-size: 7vh;
   }
+  .container .header .logo-right {
+    display: flex;
+    height: 50vh;
+    transform: scaleX(-1);
+    margin-bottom: 10px;
+  }
   .container .game__section {
     display: flex;
     width: 45vw;
   }
   .container .game__section .game__container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     height: 90vh;
+  }
+  .container .game__section .game__container .game__counters {
+    height: 10vh;
+    width: 80%;
+    margin: 0;
   }
   .container .game__section .game__container .game__window {
     height: 85vh;
@@ -199,7 +289,7 @@ body {
   .container {
     grid-template-areas: "header game" "footer footer";
     grid-template-columns: 1fr 1fr;
-    width: 100vw;
+    max-width: 800px;
   }
   .container .header {
     display: flex;
@@ -221,11 +311,16 @@ body {
   }
   .container .game__section .game__container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     height: 70vh;
   }
+  .container .game__section .game__container .game__counters {
+    height: 5vh;
+    width: 80%;
+  }
   .container .game__section .game__container .game__window {
-    height: 65vh;
+    height: 60vh;
     width: 100%;
   }
   .container .controls__section {

@@ -8,3 +8,7 @@ $border-color: #4a473e;
 
 $primary-color: #ffea00;
 $secondary-color: #f6da76;
+
+$primary-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+  0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+  inset 0 0 1.3rem #3e3c35;

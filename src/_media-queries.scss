@@ -6,12 +6,21 @@
     width: 100vw;
     .header {
       display: inherit;
+      flex-direction: column;
       align-self: flex-start;
+      justify-content: space-between;
+      height: 100%;
       padding: 10px;
       margin: 10px;
       font-size: 1rem;
       &__title {
         font-size: 7vh;
+      }
+      .logo-right {
+        display: flex;
+        height: 50vh;
+        transform: scaleX(-1);
+        margin-bottom: 10px;
       }
     }
     .game__section {
@@ -19,8 +28,14 @@
       width: 45vw;
       .game__container {
         display: flex;
+        flex-direction: column;
         align-items: center;
         height: 90vh;
+        .game__counters {
+          height: 10vh;
+          width: 80%;
+          margin: 0;
+        }
         .game__window {
           height: 85vh;
           width: 100%;
@@ -71,8 +86,7 @@
       "header game"
       "footer footer";
     grid-template-columns: 1fr 1fr;
-
-    width: 100vw;
+    max-width: 800px;
     .header {
       display: flex;
       justify-content: space-between;
@@ -94,10 +108,15 @@
     .game__section {
       .game__container {
         display: flex;
+        flex-direction: column;
         align-items: center;
         height: 70vh;
+        .game__counters {
+          height: 5vh;
+          width: 80%;
+        }
         .game__window {
-          height: 65vh;
+          height: 60vh;
           width: 100%;
         }
       }
