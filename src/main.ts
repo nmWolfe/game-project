@@ -25,7 +25,7 @@ let yPos: number = 0;
 // Var to keep count of collections
 let cornCount: number = 0;
 
-// gameGrid.innerHTML = rules;
+gameGrid.innerHTML = rules;
 
 // Construct a level based on a grid number input
 const levelConstructor = (gridAmount: number) => {
@@ -110,23 +110,23 @@ const handleClickDirection = (level: HTMLDivElement[][]) => {
 
 // Level One
 
-const levelOne = levelConstructor(5);
-levelOne[0][0].innerHTML = playerIcon;
-handleKeyboardDirection(levelOne);
-handleClickDirection(levelOne);
+// const levelOne = levelConstructor(5);
+// levelOne[0][0].innerHTML = playerIcon;
+// handleKeyboardDirection(levelOne);
+// handleClickDirection(levelOne);
 
-levelOne[1][0].id = "blocked";
-levelOne[1][1].id = "blocked";
-levelOne[1][2].id = "blocked";
-levelOne[1][3].id = "blocked";
-levelOne[3][1].id = "blocked";
-levelOne[3][2].id = "blocked";
-levelOne[3][3].id = "blocked";
-levelOne[3][4].id = "blocked";
+// levelOne[1][0].id = "blocked";
+// levelOne[1][1].id = "blocked";
+// levelOne[1][2].id = "blocked";
+// levelOne[1][3].id = "blocked";
+// levelOne[3][1].id = "blocked";
+// levelOne[3][2].id = "blocked";
+// levelOne[3][3].id = "blocked";
+// levelOne[3][4].id = "blocked";
 
-levelOne[0][4].id = "corn";
-levelOne[2][0].id = "corn";
-levelOne[4][4].id = "corn";
-levelOne[0][4].innerHTML = cornIcon;
-levelOne[2][0].innerHTML = cornIcon;
-levelOne[4][4].innerHTML = cornIcon;
+// levelOne[0][4].id = "corn";
+// levelOne[2][0].id = "corn";
+// levelOne[4][4].id = "corn";
+// levelOne[0][4].innerHTML = cornIcon;
+// levelOne[2][0].innerHTML = cornIcon;
+// levelOne[4][4].innerHTML = cornIcon;
