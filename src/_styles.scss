@@ -54,6 +54,9 @@ body {
     max-width: 800px;
     width: 95vw;
     .game__container {
+      display: inherit;
+      flex-direction: inherit;
+      align-items: center;
       max-width: 800px;
       width: 95vw;
       padding: 10px;
@@ -64,6 +67,47 @@ body {
         inset 0 0 1.3rem #3e3c35;
       text-align: center;
       color: #fff;
+      .game__counters {
+        border: 1px solid #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
+          0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
+          inset 0 0 1.3rem #3e3c35;
+        height: 5vh;
+        width: 80%;
+        margin: 5px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        .time-input {
+          display: flex;
+          justify-content: flex-start;
+          padding: 1px;
+          width: 50%;
+          border: 1px solid #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff,
+            0 0 2rem $secondary-color, 0 0 0.8rem $secondary-color,
+            0 0 2.8rem $secondary-color, inset 0 0 1.3rem #3e3c35;
+        }
+        .corn-input {
+          display: flex;
+          justify-content: flex-end;
+          padding: 1px;
+          width: 50%;
+          border: 1px solid #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff,
+            0 0 2rem $secondary-color, 0 0 0.8rem $secondary-color,
+            0 0 2.8rem $secondary-color, inset 0 0 1.3rem #3e3c35;
+        }
+        .time-counter,
+        .corn-counter {
+          background: $background-color;
+          border: none;
+          width: 50%;
+        }
+      }
       .game__window {
         padding: 5px;
         border: 1px solid #fff;
@@ -71,7 +115,8 @@ body {
         box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
           0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
           inset 0 0 1.3rem #3e3c35;
-        height: 40vh;
+        height: 35vh;
+        width: 100%;
       }
       .game {
         display: grid;
@@ -90,6 +135,11 @@ body {
         box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $secondary-color,
           0 0 0.8rem $secondary-color, 0 0 2.8rem $secondary-color,
           inset 0 0 1.3rem #3e3c35;
+      }
+      .intro {
+        font-family: $secondary-font;
+        padding: 10px;
+        font-size: 1.2rem;
       }
     }
   }
