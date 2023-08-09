@@ -32,7 +32,7 @@ body {
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
   text-align: center;
   font-size: 7vw;
-  background-image: url("./assets/supermaizeboy.svg");
+  background-image: url("../assets/supermaizeboy.svg");
   background-size: 5px;
   border-radius: 20px;
 }
@@ -128,7 +128,7 @@ body {
   border: 1px solid #fff;
   border-radius: 10px;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
-  background-image: url("./assets/supermaizeboy.svg");
+  background-image: url("../assets/supermaizeboy.svg");
   background-size: 5px;
 }
 .container .game__section .game__container .intro {
