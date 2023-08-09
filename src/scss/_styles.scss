@@ -133,9 +133,11 @@ body {
         background-size: 5px;
       }
       .intro {
+        text-align: center;
         font-family: $secondary-font;
         padding: 10px;
-        font-size: 1.2rem;
+        font-size: 2.1vh;
+        margin-top: 1vh;
       }
     }
   }

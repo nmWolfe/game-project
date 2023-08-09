@@ -132,9 +132,11 @@ body {
   background-size: 5px;
 }
 .container .game__section .game__container .intro {
+  text-align: center;
   font-family: "Josefin Sans", Tahoma;
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 2.1vh;
+  margin-top: 1vh;
 }
 .container .controls__section .controls__container {
   display: flex;

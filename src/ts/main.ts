@@ -1,4 +1,4 @@
-import "./main.scss";
+import "../scss/main.scss";
 
 // Getting directional inputs
 const directionUp = document.getElementById("arrow-up");
@@ -16,14 +16,13 @@ const gameGrid = document.querySelector(".game") as HTMLDivElement;
 // Getting display inputs
 const timeDisplay = document.querySelector(".time-counter") as HTMLInputElement;
 const cornDisplay = document.querySelector(".corn-counter") as HTMLInputElement;
-
 // Intro and Game rules
-const rules = `<p class="intro">Welcome to the MAIZE. <br> 'That's a very clever play on words' you say.<br>
+const rules = `<p class="intro">Welcome to the MAIZE. <br> 'That's a very clever play on words'<br> I agree. <br>
 You are a Corn person who loves gathering corn.
 <br> Your task is to collect all the delicious corns before the timer runs out. <br>
 If the timer runs out, goodbye my sweet friend, I'll see you in the theatres. <br>
-Press enter to continue
-(You can also click on the d-pad).
+Press enter to continue.
+(you can also click on the d-pad)
 </p>`;
 // Creating SuperMazeBoy Icon and Corn icon
 const playerIcon = `<img src="./src/assets/supermaizeboy.svg" alt="supermaizeboy" width="50%" height="100%"/>`;
@@ -103,15 +102,25 @@ const handleMove = (
     level[xPos][yPos].innerHTML = playerIcon;
 
     handleCornCount(level);
-    handleTimeCount(level);
   }
 };
 // Handle timer
-const handleTimeCount = (level: Level) => {
-  let timer = 30;
-  if (level[xPos][yPos] !== level[0][0]) {
-    timeDisplay.value = `${timer}`;
-  }
+const handleTimer = (timeCount: number) => {
+  const timer = setInterval(function () {
+    timeDisplay.value = `00: ${String(timeCount)}`;
+    timeCount--;
+    if (timeCount < 0) {
+      clearInterval(timer);
+      handleTimeOut();
+    }
+  }, 500);
+};
+// Handle timeout
+const handleTimeOut = () => {
+  gameGrid.innerHTML = `
+  <p>Well, that's a shame. You tried, but failed. These 
+  things happen in life, kid. Keep your chin up, turn that CORNer, and try again. </p>
+  `;
 };
 
 // Handle corn count
@@ -150,6 +159,7 @@ const levelOne = () => {
   levelOne[0][0].innerHTML = playerIcon;
   handleKeyboardDirection(levelOne);
   handleClickDirection(levelOne);
+  handleTimer(29);
 
   levelOne[1][0].id = "blocked";
   levelOne[1][1].id = "blocked";
@@ -173,6 +183,7 @@ const levelTwo = () => {
   levelTwo[0][0].innerHTML = playerIcon;
   handleKeyboardDirection(levelTwo);
   handleClickDirection(levelTwo);
+  handleTimer(30);
 
   levelTwo[0][1].id = "blocked";
   levelTwo[1][1].id = "blocked";
@@ -214,6 +225,7 @@ const levelThree = () => {
   levelThree[0][0].innerHTML = playerIcon;
   handleKeyboardDirection(levelThree);
   handleClickDirection(levelThree);
+  handleTimer(30);
 
   levelThree[0][4].id = "blocked";
   levelThree[1][0].id = "blocked";
@@ -252,6 +264,7 @@ const levelFour = () => {
   levelFour[0][0].innerHTML = playerIcon;
   handleKeyboardDirection(levelFour);
   handleClickDirection(levelFour);
+  handleTimer(30);
 
   levelFour[0][1].id = "blocked";
   levelFour[1][1].id = "blocked";
@@ -304,4 +317,4 @@ const levelFour = () => {
 
 const gamePlay = () => {};
 
-levelOne();
+handleRules();

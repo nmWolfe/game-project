@@ -1,119 +1,39 @@
-Game ideas 
-    - Celeste / SuperMeatBoy / Hollow Knight / platform-er / rogue-lite? 
-    - fixed position? Sticky walls? 
-    - Will P/C be single move? i.e fly one direction, stick to wall for certain period, fall. 
-        - If above - make floor = dead? 
-    - Will P/C have option to direct jump? 
-        - Could look at adding in a line showing direction? 
-    - Possibly be easier to work on X and Y = left, right, up, down
-    - What is the 'goal' of the game? 
-        - Reach a certain point? 
-        - Collectibles along route? 
-    - Puzzler? Always a correct solution? 
-
-Level design
-    - scrolling? 
-        - Could keep fixed and add scroll effect on level progression? 
-    - Backgrounds? 
-        -  Hand drawn? Random? AI-generated? 
-        - Pixel backgrounds 
-    - How will ypu implement obstacles? 
-        - death-traps? 
-        - spikes? 
-        - non-stick walls? 
-    - How will you make P/C stick to walls? 
-        - Delay? 
-        - Will this require gravity effect? 
-    - Size of container? 
-        - Definitely use wrapper and keep window to a certain size. 
-        - Force mobile into landscape to play? 
-            - Optional landscape? 
-        - Possibly make game smaller for mobile? 
-    - Start and End points
-        - pass through 'open' area to get to next stage? 
-        - land in certain spot to get to next page? 
-    - Un-lockable areas? Impassable areas? 
-    - Zero-G rooms? 
-
-Player Character
-    - Icon? Object? What will it be? 
-    - Simple up / down / left / right controls? 
-    - How will the control transform itself to mobile? 
-        - How to implement a 'swipe' feature for directions.
-        - left right up down on screen? 
-            - Option to switch this depending on dominant hand? 
-    - Look into distance arrows? Pull and shoot? 
-
-Movement 
-    - end to end? 
-    - Increment? 
-    - Jumps? No jumps? 
-
-Display 
-    - 
-
-Enemies
-    - Possibly implement math.random to fire something in a random direction in a room, that will wipe p/c out? 
-
-Theme
-    - Dark Souls meets Super Meat Boy meets Celeste
-    - GORE / BLOOD / VIOLENCE? 
-    - Pixel pixel pixel 
-
-Progression
-    - Rogue-lite? Rewards to make runs easier? 
-    - If die too many times, give option for easy-mode? 
-    - Maybe look into auto-generated rooms?
-    - Bosses? 
-
 Easter Eggs
     - easy mode option? 
     - 'developer room' - info about me? 
     - cheat codes? - up up up down down down or something... 
 
 Handlers 
-    - Handle Inputs 
-        - left, right, up, down
-    - Handle Location
-        - Handle the player Location
+    -̶ H̶a̶n̶d̶l̶e̶ I̶n̶p̶u̶t̶s̶ 
+        -̶ l̶e̶f̶t̶,̶ r̶i̶g̶h̶t̶,̶ u̶p̶,̶ d̶o̶w̶n̶
+    -̶ H̶a̶n̶d̶l̶e̶ L̶o̶c̶a̶t̶i̶o̶n̶
+        -̶ H̶a̶n̶d̶l̶e̶ t̶h̶e̶ p̶l̶a̶y̶e̶r̶ L̶o̶c̶a̶t̶i̶o̶n̶
+    -̶ H̶a̶n̶d̶l̶e̶ M̶o̶v̶e̶m̶e̶n̶t̶
     - Handle obstacles
         - traps / resets 
-    - Handle gravity
-        - Zero zones? Usual weight? 
     - Handle Levels 
         - Completed Levels
         - Switching between levels 
+    -̶ H̶a̶n̶d̶l̶e̶ C̶o̶u̶n̶t̶e̶r̶
+
     
 Functions
-    - Taking directional Inputs
-    - Moving character after inputs 
-    - level control 
-    - position relatives? 
-    - image rendering 
+    -̶ T̶a̶k̶i̶n̶g̶ d̶i̶r̶e̶c̶t̶i̶o̶n̶a̶l̶ I̶n̶p̶u̶t̶s̶
+    -̶ M̶o̶v̶i̶n̶g̶ c̶h̶a̶r̶a̶c̶t̶e̶r̶ a̶f̶t̶e̶r̶ i̶n̶p̶u̶t̶s̶ 
+    - level control  
 
+S̶t̶e̶p̶ 1̶ -̶ F̶i̶g̶u̶r̶e̶ o̶u̶t̶ h̶o̶w̶ t̶o̶ r̶e̶n̶d̶e̶r̶ a̶ m̶o̶v̶a̶b̶l̶e̶ o̶b̶j̶e̶c̶t̶ o̶n̶ a̶ p̶a̶g̶e̶
+S̶t̶e̶p̶ 2̶ -̶ F̶i̶g̶u̶r̶e̶ o̶u̶t̶ h̶o̶w̶ t̶o̶ m̶o̶v̶e̶ s̶a̶i̶d̶ o̶b̶j̶e̶c̶t̶
+S̶t̶e̶p̶ 3̶ -̶ F̶i̶g̶u̶r̶e̶ o̶u̶t̶ h̶o̶w̶ t̶o̶ h̶a̶v̶e̶ w̶a̶l̶l̶s̶ 
 
-Game Logic
-    - p/c can move up/down/left/right 
-    - Will always be only 1 path to exit
-    - Single column / row pathways 
-    - end to end movement. If a direction is pressed, p/c will travel that paths extent 
-    - 
+P̶o̶s̶s̶i̶b̶l̶y̶ t̶h̶i̶n̶k̶ -̶ t̶r̶a̶v̶e̶r̶s̶i̶n̶g̶ m̶a̶t̶r̶i̶x̶e̶s̶
+T̶h̶i̶n̶k̶ a̶b̶o̶u̶t̶ h̶o̶w̶ t̶o̶ t̶r̶a̶n̶s̶v̶e̶r̶s̶e̶ t̶h̶e̶ t̶h̶i̶n̶g̶,̶ a̶n̶d̶ h̶o̶w̶ t̶o̶ m̶a̶k̶e̶ i̶t̶ d̶i̶s̶p̶l̶a̶y̶ o̶n̶ s̶c̶r̶e̶e̶n̶.̶ 
 
-Step 1 - Figure out how to render a movable object on a page
-Step 2 - Figure out how to move said object
-Step 3 - Figure out how to have walls 
-Step 4 - Figure out how to have resets 
-Step 5 - 
+Add time counter in & add consequence 
+A̶d̶d̶ c̶o̶r̶n̶ c̶o̶u̶n̶t̶ i̶n̶
 
+Add a chaser in - MICROWAVE? 
 
-Possibly think - traversing matrixes
-Only allow one end to the other 
-Think about how to transverse the thing, and how to make it display on screen. 
+Create level array 
 
-SUPER MAIZE BOY - CORN JOKESSSSS
-PLAY KORN SON FREAK ON A LEASH AT SOME POINT
-
-maybe start out as snake esque? go into maze? go into side scroller? 
-
-Put a timer on - when it 'gets too hot' go pop - turn into popcorn 
-
+Create a corn counter for each level. 
