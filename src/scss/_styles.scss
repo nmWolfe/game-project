@@ -33,7 +33,7 @@ body {
       border-radius: 20px;
       box-shadow: $primary-shadow;
       text-align: center;
-      font-size: 7vw;
+      font-size: 6vw;
       background-image: url("../assets/supermaizeboy.svg");
       background-size: 5px;
       border-radius: 20px;
@@ -139,6 +139,32 @@ body {
         font-size: 2.1vh;
         margin-top: 1vh;
       }
+      .reset {
+        text-align: center;
+        font-family: $secondary-font;
+        padding: 20px;
+        font-size: 3vw;
+        margin-top: 20px;
+      }
+      .replay-button {
+        border: 1px solid #fff;
+        border-radius: 10px;
+        box-shadow: $primary-shadow;
+        background: none;
+        padding: 5px 10px;
+        color: #fff;
+        text-shadow: 0 0 4px $primary-color, 0 0 10px $primary-color,
+          0 0 18px $primary-color, 0 0 38px $primary-color;
+        font-size: 3vw;
+        width: 40%;
+        display: inherit;
+        align-self: center;
+        align-items: center;
+        justify-self: center;
+        &:active {
+          scale: 0.9;
+        }
+      }
     }
   }
   .controls__section {
@@ -150,8 +176,9 @@ body {
       border: 1px solid #fff;
       border-radius: 20px;
       box-shadow: $primary-shadow;
-      width: 90vw;
-      height: 30vh;
+      max-width: 750px;
+      width: 80vw;
+      height: 28vh;
       .controls {
         display: flex;
         flex-direction: column;
