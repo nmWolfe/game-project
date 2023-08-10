@@ -1,11 +1,6 @@
-import {
-  handleClickDirection,
-  handleKeyboardDirection,
-  currentLevel,
-  playerIcon,
-  cornIcon,
-} from "./main";
-import { levelConstructor } from "./functions";
+import { handleClickDirection, handleKeyboardDirection } from "./events";
+import { levelConstructor, currentLevel } from "./functions";
+import { cornIcon, playerIcon } from "./variables";
 // Levels
 export const levelOne = () => {
   if (currentLevel < 2) {
@@ -32,8 +27,6 @@ export const levelOne = () => {
   }
 };
 export const levelTwo = () => {
-  console.log("I am level 2");
-
   const levelTwo = levelConstructor(6);
 
   levelTwo[0][0].innerHTML = playerIcon;
@@ -75,7 +68,6 @@ export const levelTwo = () => {
   levelTwo[1][5].innerHTML = cornIcon;
 };
 export const levelThree = () => {
-  console.log("I am level 3");
   const levelThree = levelConstructor(7);
   levelThree[0][0].innerHTML = playerIcon;
   handleKeyboardDirection(levelThree);
@@ -114,7 +106,6 @@ export const levelThree = () => {
   levelThree[6][2].innerHTML = cornIcon;
 };
 export const levelFour = () => {
-  console.log("I am level 4");
   const levelFour = levelConstructor(8);
   levelFour[0][0].innerHTML = playerIcon;
   handleKeyboardDirection(levelFour);
