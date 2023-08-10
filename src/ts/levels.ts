@@ -1,11 +1,11 @@
 import {
   handleClickDirection,
   handleKeyboardDirection,
-  levelConstructor,
   currentLevel,
   playerIcon,
   cornIcon,
 } from "./main";
+import { levelConstructor } from "./functions";
 // Levels
 export const levelOne = () => {
   if (currentLevel < 2) {
