@@ -1,4 +1,5 @@
 import "../scss/main.scss";
+import { levelOne, levelTwo, levelThree, levelFour } from "./levels";
 
 // Getting directional inputs
 const directionUp = document.getElementById("arrow-up");
@@ -10,9 +11,9 @@ if (!directionUp || !directionRight || !directionDown || !directionLeft) {
 }
 
 // Getting the game window
-const gameWindow = document.querySelector(".game__window") as HTMLDivElement;
+
 const gameGrid = document.querySelector(".game") as HTMLDivElement;
-if (!gameWindow || !gameGrid) {
+if (!gameGrid) {
   throw new Error("Game var error");
 }
 const replayButton = document.querySelector(
@@ -38,25 +39,27 @@ Press enter to continue.
 (you can also click on the d-pad)
 </p>`;
 // Creating SuperMazeBoy Icon and Corn icon
-const playerIcon = `<img src="./src/assets/supermaizeboy.svg" alt="supermaizeboy" width="40%" height="90%"/>`;
-const cornIcon = `<img src="./src/assets/corn.svg" alt="corn icon" width="40%" height="90%"/>`;
-// Vars to mark P/C position in array - figure out how to change depending on level
-// Just initialize them, but don't assign value - do that in level func.
+export const playerIcon = `<img src="./src/assets/supermaizeboy.svg" alt="supermaizeboy" width="40%" height="90%"/>`;
+export const cornIcon = `<img src="./src/assets/corn.svg" alt="corn icon" width="40%" height="90%"/>`;
+// Vars to mark P/C position in array
 let xPos: number = 0;
 let yPos: number = 0;
 // Var to keep count of collections
 let cornCount: number = 0;
+export let currentLevel: number = 1;
+// Booleans
 let rulesDisplayed: boolean = false;
-let currentLevel: number = 1;
-// Vars to mark level completion
 let levelOneBool = false;
 let levelTwoBool = false;
 let levelThreeBool = false;
 let levelFourBool = false;
+// Event listener funcs - Function type => and return nothing
+let keyBoardEventListener: (event: KeyboardEvent) => void;
+let clickEventListener: (event: MouseEvent) => void;
 
 // Handle keyboard directions
-const handleKeyboardDirection = (level: HTMLDivElement[][]) => {
-  document.addEventListener("keydown", (event: KeyboardEvent) => {
+export const handleKeyboardDirection = (level: HTMLDivElement[][]) => {
+  keyBoardEventListener = (event: KeyboardEvent) => {
     if (event.key == "ArrowUp" || event.key == "w") {
       handleMove(-1, 0, level);
     } else if (event.key == "ArrowRight" || event.key == "d") {
@@ -66,32 +69,37 @@ const handleKeyboardDirection = (level: HTMLDivElement[][]) => {
     } else if (event.key == "ArrowLeft" || event.key == "a") {
       handleMove(0, -1, level);
     }
-  });
+  };
+  document.addEventListener("keydown", keyBoardEventListener);
 };
 // Handle click directions
-const handleClickDirection = (level: HTMLDivElement[][]) => {
-  directionUp.addEventListener("click", () => handleMove(-1, 0, level));
-  directionRight.addEventListener("click", () => handleMove(0, 1, level));
-  directionDown.addEventListener("click", () => handleMove(1, 0, level));
-  directionLeft.addEventListener("click", () => handleMove(0, -1, level));
+export const handleClickDirection = (level: HTMLDivElement[][]) => {
+  clickEventListener = (event: MouseEvent) => {
+    if (event.target == directionUp) {
+      handleMove(-1, 0, level);
+    } else if (event.target == directionRight) {
+      handleMove(0, 1, level);
+    } else if (event.target == directionDown) {
+      handleMove(1, 0, level);
+    } else if (event.target == directionLeft) {
+      handleMove(0, -1, level);
+    }
+  };
+  directionUp.addEventListener("click", clickEventListener);
+  directionRight.addEventListener("click", clickEventListener);
+  directionDown.addEventListener("click", clickEventListener);
+  directionLeft.addEventListener("click", clickEventListener);
 };
 // Construct a level based on a grid number input
-const levelConstructor = (gridAmount: number) => {
-  const cells = [];
-  xPos = 0;
-  yPos = 0;
-  gameWindow.removeChild(gameGrid);
-  gameWindow.appendChild(gameGrid);
-  console.log(gameWindow);
-  console.log(gameGrid);
+export const levelConstructor = (gridAmount: number) => {
+  const cells: HTMLDivElement[][] = [];
   // Set the grid layout
   gameGrid.style.gridTemplateColumns = `repeat(${gridAmount}, 1fr)`;
   gameGrid.style.gridTemplateRows = `repeat(${gridAmount}, 1fr)`;
   for (let i = 0; i < gridAmount; i++) {
-    const rows = [];
+    const rows: HTMLDivElement[] = [];
     for (let j = 0; j < gridAmount; j++) {
       // Create # div based on cellAmount and add cell class
-
       const cell = document.createElement("div") as HTMLDivElement;
       cell.classList.add("cell");
       // Add cells to page
@@ -140,8 +148,11 @@ const handleMove = (
   yDirection: number,
   level: HTMLDivElement[][]
 ) => {
-  const newXPos: number = xPos + xDirection;
-  const newYPos: number = yPos + yDirection;
+  let newXPos: number = xPos + xDirection;
+  let newYPos: number = yPos + yDirection;
+  console.log(newXPos);
+  console.log(newYPos);
+
   // Check walls / blockers
   if (
     newXPos >= 0 &&
@@ -197,6 +208,10 @@ const resetGame = () => {
   cornCount = 0;
 
   replayButton.addEventListener("click", () => {
+    xPos = 0;
+    yPos = 0;
+    document.removeEventListener("keydown", keyBoardEventListener);
+    document.removeEventListener("click", clickEventListener);
     levelOneBool = false;
     levelTwoBool = false;
     levelThreeBool = false;
@@ -219,186 +234,47 @@ const handleCornCount = (level: HTMLDivElement[][]) => {
 // Handle Level
 const handleLevel = () => {
   if (!levelOneBool) {
+    xPos = 0;
+    yPos = 0;
     clearGameWindow();
+    document.removeEventListener("keydown", keyBoardEventListener);
+    document.removeEventListener("click", clickEventListener);
     levelOneBool = true;
     handleTimer(10);
     levelOne();
   }
   if (cornCount >= 3 && !levelTwoBool) {
+    xPos = 0;
+    yPos = 0;
     clearGameWindow();
-    currentLevel + 1;
+    currentLevel = 2;
+    document.removeEventListener("keydown", keyBoardEventListener);
+    document.removeEventListener("click", clickEventListener);
     levelTwoBool = true;
     handleTimer(30);
     levelTwo();
   }
-  if (cornCount >= 11 && !levelThreeBool) {
+  if (cornCount >= 13 && !levelThreeBool) {
+    xPos = 0;
+    yPos = 0;
     clearGameWindow();
-    currentLevel + 1;
+    currentLevel = 3;
+    document.removeEventListener("keydown", keyBoardEventListener);
+    document.removeEventListener("click", clickEventListener);
     levelThreeBool = true;
     handleTimer(30);
     levelThree();
   }
-  if (cornCount >= 16 && !levelFourBool) {
+  if (cornCount >= 18 && !levelFourBool) {
+    xPos = 0;
+    yPos = 0;
     clearGameWindow();
     currentLevel + 1;
+    document.removeEventListener("keydown", keyBoardEventListener);
+    document.removeEventListener("click", clickEventListener);
     levelFourBool = true;
     levelFour();
   }
-};
-
-// Levels
-const levelOne = () => {
-  const levelOne = levelConstructor(5);
-  levelOne[0][0].innerHTML = playerIcon;
-  handleKeyboardDirection(levelOne);
-  handleClickDirection(levelOne);
-
-  levelOne[1][0].id = "blocked";
-  levelOne[1][1].id = "blocked";
-  levelOne[1][2].id = "blocked";
-  levelOne[1][3].id = "blocked";
-  levelOne[3][1].id = "blocked";
-  levelOne[3][2].id = "blocked";
-  levelOne[3][3].id = "blocked";
-  levelOne[3][4].id = "blocked";
-
-  levelOne[0][4].id = "corn";
-  levelOne[2][0].id = "corn";
-  levelOne[4][4].id = "corn";
-  levelOne[0][4].innerHTML = cornIcon;
-  levelOne[2][0].innerHTML = cornIcon;
-  levelOne[4][4].innerHTML = cornIcon;
-};
-const levelTwo = () => {
-  console.log("I am level 2");
-
-  const levelTwo = levelConstructor(6);
-  levelTwo[0][0].innerHTML = playerIcon;
-  handleKeyboardDirection(levelTwo);
-  handleClickDirection(levelTwo);
-
-  levelTwo[0][1].id = "blocked";
-  levelTwo[1][1].id = "blocked";
-  levelTwo[2][1].id = "blocked";
-  levelTwo[4][0].id = "blocked";
-  levelTwo[4][1].id = "blocked";
-  levelTwo[2][2].id = "blocked";
-  levelTwo[2][3].id = "blocked";
-  levelTwo[4][2].id = "blocked";
-  levelTwo[2][4].id = "blocked";
-  levelTwo[4][4].id = "blocked";
-  levelTwo[4][5].id = "blocked";
-
-  levelTwo[5][0].id = "corn";
-  levelTwo[5][5].id = "corn";
-  levelTwo[0][2].id = "corn";
-  levelTwo[0][3].id = "corn";
-  levelTwo[0][4].id = "corn";
-  levelTwo[0][5].id = "corn";
-  levelTwo[1][2].id = "corn";
-  levelTwo[1][3].id = "corn";
-  levelTwo[1][4].id = "corn";
-  levelTwo[1][5].id = "corn";
-
-  levelTwo[5][0].innerHTML = cornIcon;
-  levelTwo[5][5].innerHTML = cornIcon;
-  levelTwo[0][2].innerHTML = cornIcon;
-  levelTwo[0][3].innerHTML = cornIcon;
-  levelTwo[0][4].innerHTML = cornIcon;
-  levelTwo[0][5].innerHTML = cornIcon;
-  levelTwo[1][2].innerHTML = cornIcon;
-  levelTwo[1][3].innerHTML = cornIcon;
-  levelTwo[1][4].innerHTML = cornIcon;
-  levelTwo[1][5].innerHTML = cornIcon;
-};
-const levelThree = () => {
-  console.log("I am level 3");
-  const levelThree = levelConstructor(7);
-  levelThree[0][0].innerHTML = playerIcon;
-  handleKeyboardDirection(levelThree);
-  handleClickDirection(levelThree);
-  // handleTimer(30);
-
-  levelThree[0][4].id = "blocked";
-  levelThree[1][0].id = "blocked";
-  levelThree[1][1].id = "blocked";
-  levelThree[1][2].id = "blocked";
-  levelThree[1][4].id = "blocked";
-  levelThree[1][6].id = "blocked";
-  levelThree[2][2].id = "blocked";
-  levelThree[3][2].id = "blocked";
-  levelThree[3][1].id = "blocked";
-  levelThree[3][4].id = "blocked";
-  levelThree[3][5].id = "blocked";
-  levelThree[4][5].id = "blocked";
-  levelThree[4][6].id = "blocked";
-  levelThree[5][1].id = "blocked";
-  levelThree[5][2].id = "blocked";
-  levelThree[5][3].id = "blocked";
-  levelThree[5][5].id = "blocked";
-  levelThree[6][3].id = "blocked";
-
-  levelThree[0][6].id = "corn";
-  levelThree[2][1].id = "corn";
-  levelThree[3][6].id = "corn";
-  levelThree[5][6].id = "corn";
-  levelThree[6][2].id = "corn";
-
-  levelThree[0][6].innerHTML = cornIcon;
-  levelThree[2][1].innerHTML = cornIcon;
-  levelThree[3][6].innerHTML = cornIcon;
-  levelThree[5][6].innerHTML = cornIcon;
-  levelThree[6][2].innerHTML = cornIcon;
-};
-const levelFour = () => {
-  console.log("I am level 4");
-  const levelFour = levelConstructor(8);
-  levelFour[0][0].innerHTML = playerIcon;
-  handleKeyboardDirection(levelFour);
-  handleClickDirection(levelFour);
-  handleTimer(30);
-
-  levelFour[0][1].id = "blocked";
-  levelFour[1][1].id = "blocked";
-  levelFour[1][3].id = "blocked";
-  levelFour[1][4].id = "blocked";
-  levelFour[1][5].id = "blocked";
-  levelFour[1][6].id = "blocked";
-  levelFour[2][6].id = "blocked";
-  levelFour[3][1].id = "blocked";
-  levelFour[3][3].id = "blocked";
-  levelFour[3][4].id = "blocked";
-  levelFour[4][1].id = "blocked";
-  levelFour[4][3].id = "blocked";
-  levelFour[4][5].id = "blocked";
-  levelFour[4][7].id = "blocked";
-  levelFour[5][1].id = "blocked";
-  levelFour[5][3].id = "blocked";
-  levelFour[6][3].id = "blocked";
-  levelFour[6][5].id = "blocked";
-  levelFour[6][6].id = "blocked";
-  levelFour[7][1].id = "blocked";
-  levelFour[7][5].id = "blocked";
-
-  levelFour[0][2].id = "corn";
-  levelFour[0][7].id = "corn";
-  levelFour[2][5].id = "corn";
-  levelFour[3][7].id = "corn";
-  levelFour[4][0].id = "corn";
-  levelFour[4][4].id = "corn";
-  levelFour[7][0].id = "corn";
-  levelFour[7][3].id = "corn";
-  levelFour[7][6].id = "corn";
-
-  levelFour[0][2].innerHTML = cornIcon;
-  levelFour[0][7].innerHTML = cornIcon;
-  levelFour[2][5].innerHTML = cornIcon;
-  levelFour[3][7].innerHTML = cornIcon;
-  levelFour[4][0].innerHTML = cornIcon;
-  levelFour[4][4].innerHTML = cornIcon;
-  levelFour[7][0].innerHTML = cornIcon;
-  levelFour[7][3].innerHTML = cornIcon;
-  levelFour[7][6].innerHTML = cornIcon;
 };
 
 handleRules();
