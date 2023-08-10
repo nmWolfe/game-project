@@ -1,6 +1,5 @@
 import "../scss/main.scss";
 import { gameGrid } from "./selectors";
-
 import { rules } from "./variables";
 import { handleEnterStart, handleClickStart } from "./events";
 
