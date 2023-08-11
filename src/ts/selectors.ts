@@ -9,6 +9,14 @@ export const gameGrid = document.querySelector(".game") as HTMLDivElement;
 if (!gameGrid) {
   throw new Error("Game var error");
 }
+// Getting the controls section
+export const controlBox = document.querySelector(
+  ".controls__section"
+) as HTMLDivElement;
+if (!controlBox) {
+  throw new Error("Control box var error");
+}
+// Get the replay button
 export const replayButton = document.querySelector(
   ".replay-button"
 ) as HTMLButtonElement;

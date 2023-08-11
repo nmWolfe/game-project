@@ -42,16 +42,14 @@ export const levelConstructor = (gridAmount: number) => {
 // Handle timer
 export const handleTimer = (timeCount: number) => {
   const timer = setInterval(function () {
+    console.log("Starting timer");
+
     timeDisplay.value = `00: ${String(timeCount)}`;
     timeCount--;
     if (timeCount < 0) {
       clearInterval(timer);
       handleTimeOut(displayLose);
-    } else if (
-      LevelBooleans.levelTwo ||
-      LevelBooleans.levelThree ||
-      LevelBooleans.levelFour
-    ) {
+    } else {
       clearInterval(timer);
     }
   }, 1000);
@@ -131,8 +129,6 @@ export const handleMove = (
 export let currentLevel: number = 1;
 export const handleLevel = () => {
   if (!LevelBooleans.levelOne) {
-    console.log("I am level one");
-
     xPos = 0;
     yPos = 0;
     clearGameWindow();
@@ -150,7 +146,7 @@ export const handleLevel = () => {
     document.removeEventListener("keydown", keyBoardEventListener);
     handleRemoveEventClick();
     LevelBooleans.levelTwo = true;
-    handleTimer(30);
+    handleTimer(15);
     levelTwo();
   }
   if (cornCount >= 13 && !LevelBooleans.levelThree) {
@@ -161,7 +157,7 @@ export const handleLevel = () => {
     document.removeEventListener("keydown", keyBoardEventListener);
     handleRemoveEventClick();
     LevelBooleans.levelThree = true;
-    handleTimer(30);
+    handleTimer(20);
     levelThree();
   }
   if (cornCount >= 18 && !LevelBooleans.levelFour) {
@@ -172,7 +168,7 @@ export const handleLevel = () => {
     document.removeEventListener("keydown", keyBoardEventListener);
     handleRemoveEventClick();
     LevelBooleans.levelFour = true;
-    handleTimer(30);
+    handleTimer(25);
     levelFour();
   }
   if (cornCount >= 27) {

@@ -3,6 +3,7 @@ import {
   directionDown,
   directionLeft,
   directionRight,
+  controlBox,
 } from "./selectors";
 import { clearGameWindow, handleMove, handleLevel } from "./functions";
 
@@ -47,6 +48,7 @@ export const handleClickDirection = (level: HTMLDivElement[][]) => {
 export const handleEnterStart = (event: KeyboardEvent) => {
   if (event.key === "Enter") {
     clearGameWindow();
+    controlBox.style.display = "none";
     document.removeEventListener("keydown", handleEnterStart);
     handleLevel();
   }
