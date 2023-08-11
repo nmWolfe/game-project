@@ -1,4 +1,3 @@
-import {} from "./main";
 import { LevelBooleans } from "./objects";
 import {
   gameGrid,
@@ -11,8 +10,8 @@ import {
   directionRight,
 } from "./selectors";
 import { keyBoardEventListener, clickEventListener } from "./events";
-import { playerIcon } from "./variables";
 import { levelOne, levelTwo, levelThree, levelFour } from "./levels";
+import { playerIcon } from "./variables";
 
 // Clear the game window
 export const clearGameWindow = () => {

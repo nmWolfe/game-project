@@ -39,6 +39,7 @@
         .game__window {
           height: 85vh;
           width: 100%;
+          overflow: scroll;
         }
       }
     }
@@ -87,6 +88,7 @@
       "footer footer";
     grid-template-columns: 1fr 1fr;
     max-width: 800px;
+    max-height: 100vh;
     .header {
       display: flex;
       justify-content: space-between;

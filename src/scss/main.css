@@ -17,7 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-  height: 100vh;
+  max-height: 100vh;
   max-width: 800px;
   margin: auto;
 }
@@ -31,8 +31,8 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
   text-align: center;
-  font-size: 7vw;
-  background-image: url("../assets/supermaizeboy.svg");
+  font-size: 6vw;
+  background-image: url("../assets/logo.svg");
   background-size: 5px;
   border-radius: 20px;
 }
@@ -128,15 +128,41 @@ body {
   border: 1px solid #fff;
   border-radius: 10px;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
-  background-image: url("../assets/supermaizeboy.svg");
+  background-image: url("../assets/logo.svg");
   background-size: 5px;
 }
 .container .game__section .game__container .intro {
   text-align: center;
   font-family: "Josefin Sans", Tahoma;
   padding: 10px;
-  font-size: 2.1vh;
+  font-size: 3vw;
   margin-top: 1vh;
+  overflow: scroll;
+}
+.container .game__section .game__container .reset {
+  text-align: center;
+  font-family: "Josefin Sans", Tahoma;
+  padding: 20px;
+  font-size: 3vw;
+  margin-top: 20px;
+}
+.container .game__section .game__container .replay-button {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
+  background: none;
+  padding: 5px 10px;
+  color: #fff;
+  text-shadow: 0 0 4px #ffea00, 0 0 10px #ffea00, 0 0 18px #ffea00, 0 0 38px #ffea00;
+  font-size: 3vw;
+  width: 40%;
+  display: inherit;
+  align-self: center;
+  align-items: center;
+  justify-self: center;
+}
+.container .game__section .game__container .replay-button:active {
+  scale: 0.9;
 }
 .container .controls__section .controls__container {
   display: flex;
@@ -146,9 +172,9 @@ body {
   border: 1px solid #fff;
   border-radius: 20px;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #f6da76, 0 0 0.8rem #f6da76, 0 0 2.8rem #f6da76, inset 0 0 1.3rem #3e3c35;
-  max-width: 800px;
-  width: 90vw;
-  height: 30vh;
+  max-width: 750px;
+  width: 80vw;
+  height: 28vh;
 }
 .container .controls__section .controls__container .controls {
   display: flex;
@@ -252,6 +278,7 @@ body {
   .container .game__section .game__container .game__window {
     height: 85vh;
     width: 100%;
+    overflow: scroll;
   }
   .container .controls__section {
     display: flex;
@@ -293,6 +320,7 @@ body {
     grid-template-areas: "header game" "footer footer";
     grid-template-columns: 1fr 1fr;
     max-width: 800px;
+    max-height: 100vh;
   }
   .container .header {
     display: flex;
