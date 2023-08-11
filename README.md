@@ -23,4 +23,4 @@ This project has helped to cement my knowledge of Typescript, along with reaffir
 
 ## So, how can I play this game?
 
-The game is hosted on Github Pages, and if you click [here](url) it will take you to the page.
+The game is hosted on Github Pages, and if you click [here]("https://nmwolfe.github.io/super-maize-man/") it will take you to the page.
