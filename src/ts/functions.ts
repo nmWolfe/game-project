@@ -11,7 +11,7 @@ import {
 } from "./selectors";
 import { keyBoardEventListener, clickEventListener } from "./events";
 import { levelOne, levelTwo, levelThree, levelFour } from "./levels";
-import { playerIcon } from "./variables";
+import { playerIcon, displayWin, displayLose } from "./variables";
 
 // Clear the game window
 export const clearGameWindow = () => {
@@ -46,29 +46,44 @@ export const handleTimer = (timeCount: number) => {
     timeCount--;
     if (timeCount < 0) {
       clearInterval(timer);
-      handleTimeOut();
+      handleTimeOut(displayLose);
     } else if (
       LevelBooleans.levelTwo ||
       LevelBooleans.levelThree ||
       LevelBooleans.levelFour
     ) {
       clearInterval(timer);
-      return;
     }
   }, 1000);
 };
 // Handle timeout
-export const handleTimeOut = () => {
+export const handleTimeOut = (outcome: string) => {
   gameGrid.style.removeProperty("grid-template-columns");
   gameGrid.style.removeProperty("grid-template-rows");
-  gameGrid.innerHTML = `
-    <p class="reset">Well, that's a shame. You tried, but failed. These 
-    things happen in life, kid. Keep your chin up, turn that CORNer, and try again. </p>
-    `;
+  gameGrid.innerHTML = outcome;
+  cornDisplay.value = "PoP";
   const interval = setInterval(() => {
     resetGame();
     clearInterval(interval);
   }, 2000);
+};
+// Reset if timer runs out
+export const resetGame = () => {
+  gameGrid.appendChild(replayButton);
+  cornCount = 0;
+  replayButton.addEventListener("click", handleReplay);
+};
+// Handle replay for win/loss
+const handleReplay = () => {
+  xPos = 0;
+  yPos = 0;
+  document.removeEventListener("keydown", keyBoardEventListener);
+  document.removeEventListener("click", clickEventListener);
+  LevelBooleans.levelOne = false;
+  LevelBooleans.levelTwo = false;
+  LevelBooleans.levelThree = false;
+  LevelBooleans.levelFour = false;
+  handleLevel();
 };
 // Handle corn count
 let cornCount: number = 0;
@@ -78,23 +93,6 @@ export const handleCornCount = (level: HTMLDivElement[][]) => {
     cornDisplay.value = `${cornCount} :`;
     level[xPos][yPos].removeAttribute("id");
   }
-};
-// Reset if timer runs out
-export const resetGame = () => {
-  gameGrid.appendChild(replayButton);
-  cornCount = 0;
-
-  replayButton.addEventListener("click", () => {
-    xPos = 0;
-    yPos = 0;
-    document.removeEventListener("keydown", keyBoardEventListener);
-    document.removeEventListener("click", clickEventListener);
-    LevelBooleans.levelOne = false;
-    LevelBooleans.levelTwo = false;
-    LevelBooleans.levelThree = false;
-    LevelBooleans.levelFour = false;
-    handleLevel();
-  });
 };
 // Handle player movement
 let xPos: number = 0;
@@ -133,69 +131,63 @@ export const handleMove = (
 export let currentLevel: number = 1;
 export const handleLevel = () => {
   if (!LevelBooleans.levelOne) {
-    if (!directionUp || !directionRight || !directionDown || !directionLeft) {
-      throw new Error("Directional var error");
-    }
+    console.log("I am level one");
+
     xPos = 0;
     yPos = 0;
     clearGameWindow();
     document.removeEventListener("keydown", keyBoardEventListener);
-    directionUp.removeEventListener("click", clickEventListener);
-    directionRight.removeEventListener("click", clickEventListener);
-    directionDown.removeEventListener("click", clickEventListener);
-    directionLeft.removeEventListener("click", clickEventListener);
+    handleRemoveEventClick();
     LevelBooleans.levelOne = true;
     handleTimer(10);
     levelOne();
   }
   if (cornCount >= 3 && !LevelBooleans.levelTwo) {
-    if (!directionUp || !directionRight || !directionDown || !directionLeft) {
-      throw new Error("Directional var error");
-    }
     xPos = 0;
     yPos = 0;
     clearGameWindow();
     currentLevel = 2;
     document.removeEventListener("keydown", keyBoardEventListener);
-    directionUp.removeEventListener("click", clickEventListener);
-    directionRight.removeEventListener("click", clickEventListener);
-    directionDown.removeEventListener("click", clickEventListener);
-    directionLeft.removeEventListener("click", clickEventListener);
+    handleRemoveEventClick();
     LevelBooleans.levelTwo = true;
     handleTimer(30);
     levelTwo();
   }
   if (cornCount >= 13 && !LevelBooleans.levelThree) {
-    if (!directionUp || !directionRight || !directionDown || !directionLeft) {
-      throw new Error("Directional var error");
-    }
     xPos = 0;
     yPos = 0;
     clearGameWindow();
     currentLevel = 3;
     document.removeEventListener("keydown", keyBoardEventListener);
-    directionUp.removeEventListener("click", clickEventListener);
-    directionRight.removeEventListener("click", clickEventListener);
-    directionDown.removeEventListener("click", clickEventListener);
-    directionLeft.removeEventListener("click", clickEventListener);
+    handleRemoveEventClick();
     LevelBooleans.levelThree = true;
     handleTimer(30);
     levelThree();
   }
   if (cornCount >= 18 && !LevelBooleans.levelFour) {
-    if (!directionUp || !directionRight || !directionDown || !directionLeft) {
-      throw new Error("Directional var error");
-    }
     xPos = 0;
     yPos = 0;
     clearGameWindow();
-    currentLevel + 1;
+    currentLevel = 4;
     document.removeEventListener("keydown", keyBoardEventListener);
-    directionUp.removeEventListener("click", clickEventListener);
-    directionRight.removeEventListener("click", clickEventListener);
-    directionDown.removeEventListener("click", clickEventListener);
-    directionLeft.removeEventListener("click", clickEventListener);
+    handleRemoveEventClick();
     LevelBooleans.levelFour = true;
+    handleTimer(30);
     levelFour();
   }
+  if (cornCount >= 27) {
+    currentLevel = 1;
+    cornDisplay.value = "WIN";
+    handleTimeOut(displayWin);
+  }
+};
+// Remove event listeners on click
+const handleRemoveEventClick = () => {
+  if (!directionUp || !directionRight || !directionDown || !directionLeft) {
+    throw new Error("Directional var error");
+  }
+  directionUp.removeEventListener("click", clickEventListener);
+  directionRight.removeEventListener("click", clickEventListener);
+  directionDown.removeEventListener("click", clickEventListener);
+  directionLeft.removeEventListener("click", clickEventListener);
 };
