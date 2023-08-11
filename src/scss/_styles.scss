@@ -23,7 +23,7 @@ body {
   margin: auto;
   .header {
     &__title {
-      padding: 10px 20px;
+      padding: 5px 20px;
       margin-top: 10px;
       color: #fff;
       letter-spacing: 0.2rem;
@@ -33,7 +33,7 @@ body {
       border-radius: 20px;
       box-shadow: $primary-shadow;
       text-align: center;
-      font-size: 6vw;
+      font-size: 5vw;
       background-image: url("../assets/logo.svg");
       background-size: 5px;
       border-radius: 20px;
@@ -136,7 +136,7 @@ body {
         text-align: center;
         font-family: $secondary-font;
         padding: 10px;
-        font-size: 3vw;
+        font-size: 2.8vw;
         margin-top: 1vh;
         overflow: scroll;
       }
