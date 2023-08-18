@@ -40,7 +40,6 @@ export const levelConstructor = (gridAmount: number) => {
   return cells;
 };
 // Handle timer
-
 export const handleTimer = (timeCount: number) => {
   const timer = setInterval(function () {
     timeDisplay.value = `00: ${String(timeCount)}`;
