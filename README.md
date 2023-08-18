@@ -2,6 +2,8 @@
 
 # Super-Maize Man - A web-based maze game!
 
+[Super Maize-Man](https://nmwolfe.github.io/super-maize-man/)
+
 This project was a whole _**field**_ of fun. It involved creating a web-based game that can handle user input, and provide some sort of challenge for the Maize-loving human who decides to play it.
 It was designed with mobile-in-mind, so there is the option to click your way through with on-screen buttons, or alternatively use directional inputs on your desktop computer.
 
