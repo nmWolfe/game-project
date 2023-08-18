@@ -149,12 +149,15 @@ export const handleTimer = (timeCount: number) => {
 There is a lot I am proud of with this game. Particularly the design, to feel Retro, and fun.
 
 Here, on mobile, you can see the initial page-load, and get a feel for how the game looks.
+
 <img width="381" alt="Screenshot 2023-08-18 at 11 59 38" src="https://github.com/nmWolfe/super-maize-man/assets/125403716/6f8d8d29-60b7-4f55-ad28-189c814b117e">
 
 Turning your phone, or handheld sideways will display as this:
+
 <img width="838" alt="Screenshot 2023-08-18 at 11 59 56" src="https://github.com/nmWolfe/super-maize-man/assets/125403716/43e5b076-76a6-4305-bbd2-9120cd0c9b60">
 
 And finally, on a desktop, it will remove the D-pad, and have a 'sleeker' look.
+
 <img width="878" alt="Screenshot 2023-08-18 at 11 58 56" src="https://github.com/nmWolfe/super-maize-man/assets/125403716/6863122f-28fe-47a1-a77f-d39c03e76311">
 
 ## So, how can I play this game?
