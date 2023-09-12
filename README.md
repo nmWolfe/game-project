@@ -39,7 +39,7 @@ There were a few..
 - My solution was to separate them, and return the subsequent 'moves' to a function that would handle the changes.
 - Later I made the decision to remove the keypad, if a keyboard input was detected, as it was causing unexpected errors in my display window.
 
-```
+```typescript
 export const handleKeyboardDirection = (level: HTMLDivElement[][]) => {
   keyBoardEventListener = (event: KeyboardEvent) => {
     if (event.key == "ArrowUp" || event.key == "w") {
@@ -81,39 +81,39 @@ export const handleClickDirection = (level: HTMLDivElement[][]) => {
 - This proved to be my favorite bug, as it allowed me to really get a grasp of matrixes, and how to ~~traverse~~ access them intuitively.
 - Subsequently this became my favorite function in the whole program.
 
-```
+```typescript
 // Handle player movement
 let xPos: number = 0;
 let yPos: number = 0;
 export const handleMove = (
- xDirection: number,
- yDirection: number,
- level: HTMLDivElement[][]
+  xDirection: number,
+  yDirection: number,
+  level: HTMLDivElement[][]
 ) => {
- let newXPos: number = xPos + xDirection;
- let newYPos: number = yPos + yDirection;
+  let newXPos: number = xPos + xDirection;
+  let newYPos: number = yPos + yDirection;
 
- // Check walls / blockers
- if (
-   newXPos >= 0 &&
-   newXPos < level.length &&
-   newYPos >= 0 &&
-   newYPos < level[0].length &&
-   level[newXPos][newYPos].id != "blocked"
- ) {
-   // Clear previous position
-   level[xPos][yPos].innerHTML = "";
+  // Check walls / blockers
+  if (
+    newXPos >= 0 &&
+    newXPos < level.length &&
+    newYPos >= 0 &&
+    newYPos < level[0].length &&
+    level[newXPos][newYPos].id != "blocked"
+  ) {
+    // Clear previous position
+    level[xPos][yPos].innerHTML = "";
 
-   // Update with new position
-   xPos = newXPos;
-   yPos = newYPos;
+    // Update with new position
+    xPos = newXPos;
+    yPos = newYPos;
 
-   // Place P/C in new pos on grid
-   level[xPos][yPos].innerHTML = playerIcon;
+    // Place P/C in new pos on grid
+    level[xPos][yPos].innerHTML = playerIcon;
 
-   handleCornCount(level);
-   handleLevel();
- }
+    handleCornCount(level);
+    handleLevel();
+  }
 };
 ```
 
@@ -122,7 +122,7 @@ export const handleMove = (
 - This proved a tiresome bug. My issue was with my timer, as on each new level, I could not refresh the timer, and get it to begin running again.
 - Eventually I added checks to decide if a level was 'completed' or not. This got the timer to run as expected, allowing me to execute a 'replay' function if the timer did run out.
 
-```
+```typescript
 export const handleTimer = (timeCount: number) => {
   const timer = setInterval(function () {
     timeDisplay.value = `00: ${String(timeCount)}`;
